@@ -10,7 +10,9 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent Agent { get => agent; }
     [SerializeField] // debugging
     private string currentState;
+
     public Path path;
+    public float health = 50.0f;
 
     void Start()
     {
@@ -19,9 +21,22 @@ public class Enemy : MonoBehaviour
         stateMachine.Initialise();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if(health <= 0.0f)
+        {
+            Die();
+        }
+    }
+
+    void Die ()
+    {
+        Destroy(gameObject);
     }
 }
