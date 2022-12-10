@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Bar")]
     public float maxHealth = 100;
     public float chipSpeed = 2.0f;
+    public float enemyDamage = 10.0f;
     public Image frontHealthBar;
     public Image backHealthBar;
 
@@ -88,5 +89,13 @@ public class PlayerHealth : MonoBehaviour
         health += healAmount;
         lerpTimer = 0f;
         durationTimer = 0;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(enemyDamage);
+        }
     }
 }
