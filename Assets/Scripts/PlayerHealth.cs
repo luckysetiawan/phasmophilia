@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float chipSpeed = 2.0f;
     public float enemyDamage = 10.0f;
+    public float bossDamage = 20.0f;
     public Image frontHealthBar;
     public Image backHealthBar;
 
@@ -93,9 +94,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        string collisionObject = collision.gameObject.tag;
+        if (collisionObject == "Enemy")
         {
             TakeDamage(enemyDamage);
+        } 
+        else if(collisionObject == "BossEnemy")
+        {
+            TakeDamage(bossDamage);
         }
     }
 }
