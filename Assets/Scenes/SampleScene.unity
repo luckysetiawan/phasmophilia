@@ -945,6 +945,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
+  fireRate: 15
+  impactForce: 30
   cam: {fileID: 341637508}
   muzzleFlash: {fileID: 687620449}
   impactEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
@@ -1375,11 +1377,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   chipSpeed: 2
+  enemyDamage: 10
   frontHealthBar: {fileID: 1247252354}
   backHealthBar: {fileID: 633144110}
   overlay: {fileID: 104980464}
   duration: 0.1
   fadeSpeed: 2
+--- !u!136 &533508321
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533508302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &536289446
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,7 +4181,7 @@ PrefabInstance:
     - target: {fileID: 4893000509615087390, guid: ac7f5a420946ba64ebc3d5b8936c5fa1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c6c208db6f9e524dadb627572755b77, type: 2}
     - target: {fileID: 6743338737128305321, guid: ac7f5a420946ba64ebc3d5b8936c5fa1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
