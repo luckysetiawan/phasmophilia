@@ -34,6 +34,11 @@ public class PlayerHealth : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
 
+        if (health <= 0)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
+
         if (overlay.color.a > 0)
         {
             if (health < 30)
@@ -94,12 +99,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        string collisionObject = collision.gameObject.tag;
-        if (collisionObject == "Enemy")
+        GameObject collisionObject = collision.gameObject;
+        if (collisionObject.CompareTag("Enemy"))
         {
             TakeDamage(enemyDamage);
         } 
-        else if(collisionObject == "BossEnemy")
+        else if(collisionObject.CompareTag("Enemy"))
         {
             TakeDamage(bossDamage);
         }

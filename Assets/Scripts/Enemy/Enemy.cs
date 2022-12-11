@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
 
     void Die ()
     {
+        if (gameObject.CompareTag("BossEnemy"))
+        {
+            FindObjectOfType<GameManager>().CompleteGame();
+        }
         Destroy(gameObject);
     }
 }
