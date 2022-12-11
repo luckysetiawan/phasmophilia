@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayLab()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Lab");
     }
 
     public void ExitGame()
