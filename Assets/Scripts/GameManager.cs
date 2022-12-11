@@ -7,9 +7,17 @@ public class GameManager : MonoBehaviour
 
     public float restartDelay = 2f;
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            CompleteGame();
+        }
+    }
+
     public void CompleteGame()
     {
-        Debug.Log("WIN");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void EndGame()
@@ -17,7 +25,6 @@ public class GameManager : MonoBehaviour
         if (!gameEnded)
         {
             gameEnded = true;
-            Debug.Log("GAME OVER");
 
             Invoke("Restart", restartDelay);
         }
