@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
 {
     bool gameEnded = false;
 
-    public float restartDelay = 2f;
+    public float delay = 0f;
+    public float restartDelay = 0f;
 
     private void Update()
     {
@@ -17,7 +18,12 @@ public class GameManager : MonoBehaviour
 
     public void CompleteGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        if (!gameEnded)
+        {
+            gameEnded = true;
+
+            Invoke("ReturnToMainMenu", delay);
+        }
     }
 
     public void EndGame()
@@ -28,6 +34,11 @@ public class GameManager : MonoBehaviour
 
             Invoke("Restart", restartDelay);
         }
+    }
+
+    void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Restart()

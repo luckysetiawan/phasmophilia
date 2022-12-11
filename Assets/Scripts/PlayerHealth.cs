@@ -104,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(enemyDamage);
         } 
-        else if(collisionObject.CompareTag("Enemy"))
+        else if(collisionObject.CompareTag("BossEnemy"))
         {
             TakeDamage(bossDamage);
         }
